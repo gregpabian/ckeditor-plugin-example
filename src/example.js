@@ -1,9 +1,12 @@
-CKEDITOR.define( [
-	'mvc',
-	'./foo'
-], function(
-	mvc,
-	foo
-) {
-	return 'example ' + mvc + ' ' + foo;
+CKEDITOR.define( function() {
+	'use strict';
+
+	return {
+		init: function( editor ) {
+			console.log( 'init example for', editor );
+			editor.addCommand( 'example', function( arg ) {
+				console.log( 'example command called with:', arg );
+			} );
+		}
+	};
 } );
