@@ -1,18 +1,20 @@
-CKE.define( function() {
+CKE.define( [ 'mvc/plugin' ], function( Plugin ) {
 	'use strict';
 
-	return {
-		init: function( editor, done ) {
-			console.log( 'start init example for', editor );
+	return Plugin.extend( {
+		init: function( done ) {
+			console.log( 'start init example for', this.editor );
 
 			// simulate an async initialization
 			setTimeout( function() {
-				console.log( 'done init example for', editor );
-				editor.addCommand( 'example', function( arg ) {
+				console.log( 'done init example for', this.editor );
+
+				this.editor.addCommand( 'example', function( arg ) {
 					console.log( 'example command called with:', arg );
 				} );
+
 				done();
-			}, 1000 );
+			}.bind( this ), 1000 );
 		}
-	};
+	} );
 } );
