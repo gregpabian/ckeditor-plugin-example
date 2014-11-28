@@ -16,5 +16,9 @@ CKE.define( [ 'mvc/plugin' ], function( Plugin ) {
 				done();
 			}.bind( this ), 1000 );
 		}
+	}, {
+		moduleMethod: function() {
+			console.log( 'example.moduleAPIMethod was called' );
+		}
 	} );
 } );
